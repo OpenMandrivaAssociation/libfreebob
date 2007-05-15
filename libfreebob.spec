@@ -1,6 +1,5 @@
 %define name	libfreebob
-%define version	1.0.0
-%define svn	199
+%define version	1.0.3
 %define release %mkrel 1
 
 %define major	0
@@ -50,7 +49,7 @@ Libraries and includes files for developing programs based on %name.
 
 %build
 %configure2_5x
-%make
+make
 										
 %install
 rm -rf $RPM_BUILD_ROOT
