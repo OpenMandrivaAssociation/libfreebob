@@ -14,6 +14,7 @@ Source:		%{name}-%{version}.tar.bz2
 URL:		http://freebob.sourceforge.net/
 License:	GPL
 Group:		Sound
+BuildRoot:	%{_tmppath}/%{name}-buildroot
 BuildRequires:	pkgconfig libxml2-devel zlib-devel
 BuildRequires:	libavc1394-devel >= 0.5.2
 BuildRequires:	libiec61883-devel >= 1.1.0
