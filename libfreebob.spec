@@ -1,25 +1,25 @@
-%define name	libfreebob
-%define version	1.0.3
-%define release %mkrel 2
-
-%define major	0
+%define major 0
 %define libname %mklibname freebob %major
 
-Name: 	 	%{name}
+Name: 	 	libfreebob
 Summary: 	Library for BeBoB audio devices
-Version: 	%{version}
-Release: 	%{release}
-
-Source:		%{name}-%{version}.tar.bz2
-URL:		http://freebob.sourceforge.net/
+Version: 	1.0.7
+Release: 	%mkrel 1
 License:	GPL
 Group:		Sound
-BuildRoot:	%{_tmppath}/%{name}-buildroot
-BuildRequires:	pkgconfig libxml2-devel zlib-devel
-BuildRequires:	libavc1394-devel >= 0.5.2
+URL:		http://freebob.sourceforge.net/
+Source:		%{name}-%{version}.tar.bz2
+Patch0:		libfreebob-1.0.3-cstdlib.patch
+Patch1:		libfreebob-1.0.3-gcc43.patch
+BuildRequires:	libalsa-devel >= 1.0.0
+BuildRequires:	libavc1394-devel >= 0.5.3
 BuildRequires:	libiec61883-devel >= 1.1.0
-BuildRequires:	libraw1394-devel
-BuildRequires:	libalsa-devel
+BuildRequires:	libraw1394-devel >= 1.2.1
+BuildRequires:	libxml2-devel >= 2.6.0
+BuildRequires:	pkgconfig
+BuildRequires:	zlib-devel
+BuildRequires:	libtool
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 This library provides access to BeBoB devices from the Freebob project.
@@ -45,21 +45,28 @@ Obsoletes: 	%name-devel
 Libraries and includes files for developing programs based on %name.
 
 %prep
+
 %setup -q -n %name-%version
 
 %build
+rm -f configure
+libtoolize --copy --force; aclocal; autoconf
+
 %configure2_5x
-make
+
+%make
 										
 %install
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
+
 %makeinstall
 
-%clean
-rm -rf $RPM_BUILD_ROOT
-
 %post -n %{libname} -p /sbin/ldconfig
+
 %postun -n %{libname} -p /sbin/ldconfig
+
+%clean
+rm -rf %{buildroot}
 
 %files -n %{libname}
 %defattr(-,root,root)
@@ -73,5 +80,3 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/*.a
 %{_libdir}/*.la
 %{_libdir}/pkgconfig/*.pc
-
-
