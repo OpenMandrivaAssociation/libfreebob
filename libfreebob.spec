@@ -9,8 +9,7 @@ License:	GPL
 Group:		Sound
 URL:		http://freebob.sourceforge.net/
 Source:		%{name}-%{version}.tar.bz2
-Patch0:		libfreebob-1.0.3-cstdlib.patch
-Patch1:		libfreebob-1.0.3-gcc43.patch
+Patch0:		libfreebob-1.0.7-gcc43.diff
 BuildRequires:	libalsa-devel >= 1.0.0
 BuildRequires:	libavc1394-devel >= 0.5.3
 BuildRequires:	libiec61883-devel >= 1.1.0
@@ -47,6 +46,7 @@ Libraries and includes files for developing programs based on %name.
 %prep
 
 %setup -q -n %name-%version
+%patch0 -p1
 
 %build
 rm -f configure
@@ -80,3 +80,4 @@ rm -rf %{buildroot}
 %{_libdir}/*.a
 %{_libdir}/*.la
 %{_libdir}/pkgconfig/*.pc
+
