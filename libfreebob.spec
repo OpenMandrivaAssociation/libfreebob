@@ -3,12 +3,12 @@
 
 Name: 	 	libfreebob
 Summary: 	Library for BeBoB audio devices
-Version: 	1.0.7
-Release: 	%mkrel 3
+Version: 	1.0.11
+Release: 	%mkrel 1
 License:	GPL
 Group:		Sound
 URL:		http://freebob.sourceforge.net/
-Source:		%{name}-%{version}.tar.bz2
+Source:		%{name}-%{version}.tar.gz
 Patch0:		libfreebob-1.0.7-gcc43.diff
 BuildRequires:	libalsa-devel >= 1.0.0
 BuildRequires:	libavc1394-devel >= 0.5.3
@@ -44,8 +44,7 @@ Obsoletes: 	%name-devel
 Libraries and includes files for developing programs based on %name.
 
 %prep
-
-%setup -q -n %name-%version
+%setup -q
 %patch0 -p1
 
 %build
