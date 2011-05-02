@@ -4,7 +4,7 @@
 Name: 	 	libfreebob
 Summary: 	Library for BeBoB audio devices
 Version: 	1.0.11
-Release: 	%mkrel 5
+Release: 	%mkrel 6
 License:	GPL
 Group:		Sound
 URL:		http://freebob.sourceforge.net/
