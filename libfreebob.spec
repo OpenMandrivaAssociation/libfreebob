@@ -4,7 +4,7 @@
 Name: 	 	libfreebob
 Summary: 	Library for BeBoB audio devices
 Version: 	1.0.11
-Release: 	%mkrel 6
+Release: 	7
 License:	GPL
 Group:		Sound
 URL:		http://freebob.sourceforge.net/
@@ -53,7 +53,7 @@ Libraries and includes files for developing programs based on %name.
 rm -f configure
 libtoolize --copy --force; aclocal; autoconf
 
-%configure2_5x
+%configure2_5x --enable-static=false
 
 %make
 										
@@ -61,14 +61,6 @@ libtoolize --copy --force; aclocal; autoconf
 rm -rf %{buildroot}
 
 %makeinstall
-
-%if %mdkversion < 200900
-%post -n %{libname} -p /sbin/ldconfig
-%endif
-
-%if %mdkversion < 200900
-%postun -n %{libname} -p /sbin/ldconfig
-%endif
 
 %clean
 rm -rf %{buildroot}
@@ -82,7 +74,5 @@ rm -rf %{buildroot}
 %doc AUTHORS ChangeLog NEWS README
 %{_includedir}/*
 %{_libdir}/*.so
-%{_libdir}/*.a
-%{_libdir}/*.la
 %{_libdir}/pkgconfig/*.pc
 
