@@ -61,6 +61,7 @@ libtoolize --copy --force; aclocal; autoconf
 rm -rf %{buildroot}
 
 %makeinstall
+rm -f %{buildroot}%{_libdir}/*.la
 
 %clean
 rm -rf %{buildroot}
