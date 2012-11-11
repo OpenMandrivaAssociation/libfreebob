@@ -1,0 +1,94 @@
+diff -upr libfreebob-1.0.11/src/debugmodule/debugmodule.cpp libfreebob-1.0.11-patched/src/debugmodule/debugmodule.cpp
+--- libfreebob-1.0.11/src/debugmodule/debugmodule.cpp	2007-10-15 14:15:09.000000000 -0400
++++ libfreebob-1.0.11-patched/src/debugmodule/debugmodule.cpp	2009-05-18 08:13:12.000000000 -0400
+@@ -23,6 +23,7 @@
+ #include <stdarg.h>
+ #include <netinet/in.h>
+ 
++#include <cstdio>
+ #include <iostream>
+ 
+ using namespace std;
+diff -upr libfreebob-1.0.11/src/libfreebobavc/avc_extended_plug_info.cpp libfreebob-1.0.11-patched/src/libfreebobavc/avc_extended_plug_info.cpp
+--- libfreebob-1.0.11/src/libfreebobavc/avc_extended_plug_info.cpp	2007-10-15 14:15:08.000000000 -0400
++++ libfreebob-1.0.11-patched/src/libfreebobavc/avc_extended_plug_info.cpp	2009-05-18 08:03:49.000000000 -0400
+@@ -22,7 +22,9 @@
+ #include "serialize.h"
+ #include "ieee1394service.h"
+ 
++#include <cstdio>
+ #include <cstdlib>
++#include <cstring>
+ #include <netinet/in.h>
+ #include <iostream>
+ 
+diff -upr libfreebob-1.0.11/src/libfreebobavc/avc_extended_stream_format.cpp libfreebob-1.0.11-patched/src/libfreebobavc/avc_extended_stream_format.cpp
+--- libfreebob-1.0.11/src/libfreebobavc/avc_extended_stream_format.cpp	2007-10-15 14:15:08.000000000 -0400
++++ libfreebob-1.0.11-patched/src/libfreebobavc/avc_extended_stream_format.cpp	2009-05-18 08:06:07.000000000 -0400
+@@ -22,6 +22,7 @@
+ #include "serialize.h"
+ #include "ieee1394service.h"
+ 
++#include <cstdio>
+ #include <netinet/in.h>
+ 
+ ///////////////////////////////////////////////////////////
+diff -upr libfreebob-1.0.11/src/libfreebobavc/avc_generic.cpp libfreebob-1.0.11-patched/src/libfreebobavc/avc_generic.cpp
+--- libfreebob-1.0.11/src/libfreebobavc/avc_generic.cpp	2007-10-15 14:15:08.000000000 -0400
++++ libfreebob-1.0.11-patched/src/libfreebobavc/avc_generic.cpp	2009-05-18 08:06:30.000000000 -0400
+@@ -22,7 +22,9 @@
+ #include "serialize.h"
+ #include "ieee1394service.h"
+ 
++#include <cstdio>
+ #include <cstdlib>
++#include <cstring>
+ #include <netinet/in.h>
+ 
+ #define DEBUG_EXTRA_VERBOSE 2
+diff -upr libfreebob-1.0.11/src/libfreebobavc/ieee1394service.cpp libfreebob-1.0.11-patched/src/libfreebobavc/ieee1394service.cpp
+--- libfreebob-1.0.11/src/libfreebobavc/ieee1394service.cpp	2007-10-15 14:15:08.000000000 -0400
++++ libfreebob-1.0.11-patched/src/libfreebobavc/ieee1394service.cpp	2009-05-18 08:12:22.000000000 -0400
+@@ -24,6 +24,7 @@
+ #include <errno.h>
+ #include <netinet/in.h>
+ 
++#include <cstdio>
+ #include <iostream>
+ 
+ using namespace std;
+diff -upr libfreebob-1.0.11/src/libfreebobavc/serialize.cpp libfreebob-1.0.11-patched/src/libfreebobavc/serialize.cpp
+--- libfreebob-1.0.11/src/libfreebobavc/serialize.cpp	2007-10-15 14:15:08.000000000 -0400
++++ libfreebob-1.0.11-patched/src/libfreebobavc/serialize.cpp	2009-05-18 08:12:50.000000000 -0400
+@@ -20,6 +20,7 @@
+ 
+ #include "serialize.h"
+ 
++#include <cstdio>
+ #include <iostream>
+ #include <iomanip>
+ 
+diff -upr libfreebob-1.0.11/tests/test-extplugcmd.cpp libfreebob-1.0.11-patched/tests/test-extplugcmd.cpp
+--- libfreebob-1.0.11/tests/test-extplugcmd.cpp	2007-10-15 14:15:07.000000000 -0400
++++ libfreebob-1.0.11-patched/tests/test-extplugcmd.cpp	2009-05-18 07:48:17.000000000 -0400
+@@ -23,6 +23,7 @@
+ #include "libfreebobavc/serialize.h"
+ #include "libfreebobavc/ieee1394service.h"
+ 
++#include <stdlib.h>
+ #include <argp.h>
+ 
+ using namespace std;
+diff -upr libfreebob-1.0.11/tests/test-volume.cpp libfreebob-1.0.11-patched/tests/test-volume.cpp
+--- libfreebob-1.0.11/tests/test-volume.cpp	2007-10-15 14:15:07.000000000 -0400
++++ libfreebob-1.0.11-patched/tests/test-volume.cpp	2009-05-18 08:16:58.000000000 -0400
+@@ -22,6 +22,9 @@
+ #include "libfreebobavc/serialize.h"
+ #include "libfreebobavc/ieee1394service.h"
+ 
++#include <cstdio>
++#include <cstdlib>
++
+ const bool bVerbose = false;
+ 
+ short int
