@@ -7,7 +7,7 @@ Version: 	1.0.11
 Release: 	8
 License:	GPL
 Group:		Sound
-URL:		http://freebob.sourceforge.net/
+URL:		https://freebob.sourceforge.net/
 Source:		%{name}-%{version}.tar.gz
 Patch0:		libfreebob-1.0.7-gcc43.diff
 Patch1:		libfreebob-1.0.11-gcc451.diff
