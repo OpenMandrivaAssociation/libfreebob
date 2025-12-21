@@ -11,6 +11,11 @@ URL:		https://freebob.sourceforge.net/
 Source:		%{name}-%{version}.tar.gz
 Patch0:		libfreebob-1.0.7-gcc43.diff
 Patch1:		libfreebob-1.0.11-gcc451.diff
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	libalsa-devel >= 1.0.0
 BuildRequires:	libavc1394-devel >= 0.5.3
 BuildRequires:	libiec61883-devel >= 1.1.0
